@@ -1,4 +1,5 @@
 {
+  "name": "ai-prompter",
   "scripts": {
     "start": "node -r dotenv/config src/index.mjs",
     "most-expensive-prompt": "node src/most-expensive-prompt.mjs",
