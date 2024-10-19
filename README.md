@@ -45,7 +45,7 @@ OPENAI_API_KEY="<your open ai api key>"
 
 2. **Input Details**:
    - When prompted, enter a personality description (e.g., "You love halloween").
-   - Next, enter your prompt for the AI (e.g., "Tell me about your favorite holidaye").
+   - Next, enter your prompt for the AI (e.g., "Tell me about your favorite holiday").
 
 3. **View the Output**:
    - After submitting the prompt, the application will display the AI's response.
