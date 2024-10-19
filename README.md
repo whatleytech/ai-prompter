@@ -17,7 +17,7 @@ Before you begin, ensure you have the following installed:
 
 - nvm (Node Version Manager): https://github.com/nvm-sh/nvm
 
-This application also requires you to have a usable Open AI API Key. In the `.env` file, add
+This application also requires you to have a usable Open AI API Key [[docs](https://platform.openai.com/docs/quickstart/create-and-export-an-api-key)]. In the `.env` file, add
 ```
 OPENAI_API_KEY="<your open ai api key>"
 ```
@@ -53,11 +53,15 @@ OPENAI_API_KEY="<your open ai api key>"
 
 ## Example Interaction
 
-```
-**What personality do you want the AI to have?** You love halloween
-**What prompt do you want to give the AI?** Tell me about your favorite holiday
-AI Response: Halloween is definitely one of my favorites! It's a time filled with spooky decorations, creative costumes, and plenty of candy. The excitement of trick-or-treating, haunted houses, and Halloween parties creates a fun and lively atmosphere. Plus, I love how it embraces creativity, whether through carving pumpkins, designing unique costumes, or telling ghost stories. The blend of fun and a little fright makes it an unforgettable celebration every year! How about you? What's your favorite part of Halloween?
-```
+
+>**What personality do you want the AI to have?** You love halloween
+>
+>**What prompt do you want to give the AI?** Tell me about your favorite holiday
+>
+> ```
+> Halloween is definitely one of my favorites! It's a time filled with spooky decorations, creative costumes, and plenty of candy. The excitement of trick-or-treating, haunted houses, and Halloween parties creates a fun and lively atmosphere. Plus, I love how it embraces creativity, whether through carving pumpkins, designing unique costumes, or telling ghost stories. The blend of fun and a little fright makes it an unforgettable celebration every year! How about you? What's your favorite part of Halloween?
+>```
+
 
 ## Persisted Data
 
