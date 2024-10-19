@@ -6,50 +6,52 @@ import { v4 as uuidv4 } from 'uuid';
 const openai = new OpenAI();
 
 const promptAI = async (input) => {
-    const personality = input?.personality ?? 'You are a helpful assistant.';
-    const aiPrompt = input?.aiPrompt ?? 'Describe what it means to live a healthy lifestyle.';
+  const personality = input?.personality ?? "You are a helpful assistant.";
+  const aiPrompt =
+    input?.aiPrompt ?? "Describe what it means to live a healthy lifestyle.";
 
-    const result = await openai.chat.completions.create({
-        model: "gpt-4o-mini",
-        messages: [
-            { role: "system", content: personality },
-            {
-                role: "user",
-                content: aiPrompt,
-            },
-        ],
-    });
+  const result = await openai.chat.completions.create({
+    model: "gpt-4o-mini",
+    messages: [
+      { role: "system", content: personality },
+      {
+        role: "user",
+        content: aiPrompt,
+      },
+    ],
+  });
 
-    return {
-        ...result,
-        meta: {
-            personality,
-            aiPrompt
-        }
-    };
-}
+  return {
+    output: result,
+    input: {
+      personality,
+      aiPrompt,
+    },
+  };
+};
 
 const persistUsage = (result) => {
-    fs.mkdirSync("db", { recursive: true });
+  fs.mkdirSync("db", { recursive: true });
 
-    const date = dayjs();
-    const records = fs.readdirSync('db')
+  const date = dayjs();
+  const records = fs.readdirSync("db");
 
-    const record = {
-        id: uuidv4(),
-        ...result.usage,
-        ...result.meta,
-        created_at: date.format(), 
-        updated_at: date.format()
-    }
+  const record = {
+    id: uuidv4(),
+    ...result,
+    created_at: date.format(),
+    updated_at: date.format(),
+  };
 
-    const fileName = `usage-${records.length + 1}-${date.format('YYYYMMDDHHmmssSSS')}.json`;
-    fs.writeFileSync(`db/${fileName}`, JSON.stringify(record));
+  const fileName = `usage-${records.length + 1}-${date.format(
+    "YYYYMMDDHHmmssSSS"
+  )}.json`;
+  fs.writeFileSync(`db/${fileName}`, JSON.stringify(record));
 
-    return result;
-}
+  return result;
+};
 
-export const execute = async (input) => 
-    await promptAI(input)
-        .then((result) => persistUsage(result))
-        .then((result) => result.choices[0].message.content)
+export const execute = async (input) =>
+  await promptAI(input)
+    .then((result) => persistUsage(result))
+    .then((result) => result.output.choices[0].message.content);
