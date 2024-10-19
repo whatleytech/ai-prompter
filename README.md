@@ -35,7 +35,7 @@ Before you begin, ensure you have the following installed:
 
 1. **Run the application:**
    ```bash
-   node src/index.mjs
+   npm run start
    ```
 
 2. **Input Details**:
@@ -65,6 +65,21 @@ The application logs each interaction to a new file named `usage-${index}-${time
 - Updated Date
 
 This data can be helpful for analyzing interactions or tracking AI performance over time.
+
+### Analyzing
+
+There are some helpful scripts that allow you to analyze the prompt and responses.
+
+**Most expensive prompt:**
+```bash
+npm run most-expensive-prompt
+```
+
+**Total Usage:**
+```bash
+npm run total-usage
+```
+
 
 ## Contributing
 

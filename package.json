@@ -1,4 +1,9 @@
 {
+  "scripts": {
+    "start": "node src/index.mjs",
+    "most-expensive-prompt": "node src/most-expensive-prompt.mjs",
+    "total-usage": "node src/calculate-usage.mjs"
+  },
   "dependencies": {
     "dayjs": "^1.11.13",
     "inquirer": "^12.0.0",
