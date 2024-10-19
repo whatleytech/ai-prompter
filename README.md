@@ -17,6 +17,11 @@ Before you begin, ensure you have the following installed:
 
 - nvm (Node Version Manager): https://github.com/nvm-sh/nvm
 
+This application also requires you to have a usable Open AI API Key. In the `.env` file, add
+```
+OPENAI_API_KEY="<your open ai api key>"
+```
+
 ## Installation
 
 1. **Clone the repository:**
